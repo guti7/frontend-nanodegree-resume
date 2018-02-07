@@ -5,7 +5,7 @@ var bio = {
   "name": "Jose Gutierrez",
   "role": "Software Developer",
   "welcomeMessage": "Amassing all the knowledge",
-  "biopic": "",
+  "biopic": "images/fry.jpg",
   "contacts": {
     "mobile": "###-###-####",
     "email": "email@email.com",
@@ -86,6 +86,11 @@ if (bio.contacts && Object.keys(bio.contacts).length > 0) {
     formattedContact = formattedContact.replace("%data%", contacts[key]);
     $("#topContacts").append(formattedContact);
   }
+}
+
+if (bio.hasOwnProperty("biopic")) {
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+  $("#header").append(formattedBioPic);
 }
 
 if (bio.skills && bio.skills.length > 0) {
