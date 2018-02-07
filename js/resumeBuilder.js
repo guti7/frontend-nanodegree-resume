@@ -32,49 +32,48 @@ var bio = {
 };
 
 // TODO: url strings for project images
-var projects = [
-  {
+var projects = {
+  "projects": [{
     "title": "Portfolio Site",
     "dates": "January 2018",
     "description": "Personal Portfolio site",
     "images": []
-  },
-  {
+  }, {
     "title": "Online Resume",
     "dates": "February 2018",
     "description": "Online resume site",
     "images": []
-  }
-];
+  }]
+};
 
-var work = [
-  {
+var work = {
+  "jobs": [{
     "employer": "",
     "title": "",
     "location": "",
     "dates": "",
     "description": ""
-  }
-];
+  }]
+};
 
 var education = {
   "schools": [{
     "name": "Blue Ridge Community College",
     "location": "Flat Rock",
     "majors": ["Associate's in Science"],
-    "degreeDates": "2011",
+    "dates": "2011",
     "url": ""
   }, {
     "name": "NCSU",
     "location": "Raleigh",
     "majors": ["Computer Science"],
-    "degreeDates": "2014",
+    "dates": "2014",
     "url": ""
   }],
-  "onlineCourses": [ {
+  "onlineCourses": [{
     "title": "FEND",
     "school": "Udacity",
-    "dates": "February 2018",
+    "dates": "2018",
     "url": "https://udacity.com"
-  } ]
+  }]
 };
