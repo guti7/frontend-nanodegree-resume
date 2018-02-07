@@ -81,6 +81,7 @@ $("#header").prepend(formattedName, formattedRole);
 
 if (bio.contacts && Object.keys(bio.contacts).length > 0) {
   var contacts = bio.contacts;
+  // TODO: Replace for a different for loop?
   for (key in contacts) {
     var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
     formattedContact = formattedContact.replace("%data%", contacts[key]);
