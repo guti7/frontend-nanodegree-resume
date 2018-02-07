@@ -77,4 +77,4 @@ var education = {
     "dates": "February 2018",
     "url": "https://udacity.com"
   } ]
-}
+};
