@@ -74,42 +74,52 @@ var education = {
   }]
 };
 
-let formattedName = HTMLheaderName.replace("%data%", bio.name);
-let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+function displayBioName() {
+  let formattedName = HTMLheaderName.replace("%data%", bio.name);
+  $("#header").prepend(formattedName);
+}
 
-$("#header").prepend(formattedName, formattedRole);
+function displayBioRole() {
+  let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  $("#header").prepend(formattedRole);
+}
 
-if (bio.contacts && Object.keys(bio.contacts).length > 0) {
-  var contacts = bio.contacts;
-  // TODO: Replace for a different for loop?
-  for (key in contacts) {
-    var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
-    formattedContact = formattedContact.replace("%data%", contacts[key]);
-    $("#topContacts").append(formattedContact);
+function displayContacts() {
+  if (bio.contacts && Object.keys(bio.contacts).length > 0) {
+    var contacts = bio.contacts;
+    // TODO: Replace for a different for loop?
+    for (key in contacts) {
+      var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
+      formattedContact = formattedContact.replace("%data%", contacts[key]);
+      $("#topContacts").append(formattedContact);
+    }
   }
 }
 
-if (bio.hasOwnProperty("biopic")) {
-  var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-  $("#header").append(formattedBioPic);
+function displayBiopic() {
+  if (bio.hasOwnProperty("biopic")) {
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#header").append(formattedBioPic);
+  }
 }
 
-if (bio.hasOwnProperty("welcomeMessage")) {
-  var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-  $("#header").append(formattedWelcomeMessage);
+function displayWelcomeMessage() {
+  if (bio.hasOwnProperty("welcomeMessage")) {
+    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcomeMessage);
+  }
 }
 
-if (bio.skills && bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-
-  var skills = bio.skills;
-  skills.forEach(function(skill) {
-    var formattedSkills = HTMLskills.replace("%data%", skill);
-    $("#skills").append(formattedSkills);
-  });
+function displaySkills() {
+  if (bio.skills && bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    var skills = bio.skills;
+    skills.forEach(function(skill) {
+      var formattedSkills = HTMLskills.replace("%data%", skill);
+      $("#skills").append(formattedSkills);
+    });
+  }
 }
-
-displayWork(); // hoisted?
 
 function displayWork() {
   if (work.jobs && work.jobs.length > 0) {
@@ -126,3 +136,15 @@ function displayWork() {
     });
   }
 }
+
+function displayHeader() {
+  displayBioRole();
+  displayBioName();
+  displayContacts();
+  displayBiopic();
+  displayWelcomeMessage();
+  displaySkills();
+}
+
+displayHeader();
+displayWork();
