@@ -47,6 +47,16 @@ var projects = [
   }
 ];
 
+var work = [
+  {
+    "employer": "",
+    "title": "",
+    "location": "",
+    "dates": "",
+    "description": ""
+  }
+];
+
 var education = {
   "schools": [{
     "name": "Blue Ridge Community College",
