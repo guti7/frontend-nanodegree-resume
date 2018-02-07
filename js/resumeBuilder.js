@@ -72,3 +72,9 @@ let formattedName = HTMLheaderName.replace("%data%", bio.name);
 let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedName, formattedRole);
+
+if (bio.skills && bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+  var formattedSkills = HTMLskills.replace("%data%", "Skills: " + bio.skills.join(", "));
+  $("#skills").append(formattedSkills);
+}
