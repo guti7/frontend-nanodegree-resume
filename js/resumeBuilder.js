@@ -11,6 +11,26 @@ let formattedRole = HTMLheaderRole.replace("%data%", role);
 // TODO: play with .prepend and indvidual calls once more content is added
 $("#header").prepend(formattedName, formattedRole);
 
+var bio = {
+  "name": "Jose Gutierrez",
+  "role": "Software Developer",
+  "welcomeMessage": "Amassing all the knowledge",
+  "biopic": "",
+  "contacts": {
+    "mobile": "###-###-####",
+    "email": "email@email.com",
+    "github": "guti7",
+    "location": "Emerald City"
+  },
+  "skills": [
+    "Git",
+    "GitHub",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+};
+
 var education = {
   "schools": [{
     "name": "Blue Ridge Community College",
