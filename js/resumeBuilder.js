@@ -38,11 +38,17 @@ var projects = {
 
 var work = {
   "jobs": [{
-    "employer": "",
-    "title": "",
-    "location": "",
-    "dates": "",
-    "description": ""
+    "employer": "Hats inc.",
+    "title": "Owner",
+    "location": "Here",
+    "dates": "2018",
+    "description": "All kinds of hats."
+  }, {
+    "employer": "Furious Games",
+    "title": "Game Developer",
+    "location": "Bellevue",
+    "dates": "2018",
+    "description": "Developer of video games"
   }]
 };
 
@@ -77,4 +83,17 @@ if (bio.skills && bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
   var formattedSkills = HTMLskills.replace("%data%", "Skills: " + bio.skills.join(", "));
   $("#skills").append(formattedSkills);
+}
+
+if (work.jobs && work.jobs.length > 0) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var jobs = work.jobs;
+  jobs.forEach(function(job){
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+    var formattedJob = formattedEmployer + formattedTitle
+
+    $(".work-entry:last").append(formattedJob);
+  });
 }
