@@ -79,6 +79,15 @@ let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedName, formattedRole);
 
+if (bio.contacts && Object.keys(bio.contacts).length > 0) {
+  var contacts = bio.contacts;
+  for (key in contacts) {
+    var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
+    formattedContact = formattedContact.replace("%data%", contacts[key]);
+    $("#topContacts").append(formattedContact);
+  }
+}
+
 if (bio.skills && bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
   var formattedSkills = HTMLskills.replace("%data%", "Skills: " + bio.skills.join(", "));
