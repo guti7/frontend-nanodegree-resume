@@ -4,7 +4,7 @@ Your code to build the resume will go here.
 var bio = {
   "name": "Jose Gutierrez",
   "role": "Software Developer",
-  "welcomeMessage": "Amassing all the knowledge",
+  "welcomeMessage": "Amassing all the knowledge.",
   "biopic": "images/fry.jpg",
   "contacts": {
     "mobile": "###-###-####",
@@ -91,6 +91,11 @@ if (bio.contacts && Object.keys(bio.contacts).length > 0) {
 if (bio.hasOwnProperty("biopic")) {
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").append(formattedBioPic);
+}
+
+if (bio.hasOwnProperty("welcomeMessage")) {
+  var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+  $("#header").append(formattedWelcomeMessage);
 }
 
 if (bio.skills && bio.skills.length > 0) {
