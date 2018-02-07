@@ -100,8 +100,12 @@ if (bio.hasOwnProperty("welcomeMessage")) {
 
 if (bio.skills && bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
-  var formattedSkills = HTMLskills.replace("%data%", "Skills: " + bio.skills.join(", "));
-  $("#skills").append(formattedSkills);
+
+  var skills = bio.skills;
+  skills.forEach(function(skill) {
+    var formattedSkills = HTMLskills.replace("%data%", skill);
+    $("#skills").append(formattedSkills);
+  });
 }
 
 if (work.jobs && work.jobs.length > 0) {
