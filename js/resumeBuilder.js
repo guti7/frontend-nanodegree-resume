@@ -41,13 +41,13 @@ var work = {
     "employer": "Hats inc.",
     "title": "Owner",
     "location": "Here",
-    "dates": "2018",
+    "dates": "February 2018",
     "description": "All kinds of hats."
   }, {
     "employer": "Furious Games",
     "title": "Game Developer",
     "location": "Bellevue",
-    "dates": "2018",
+    "dates": "February 2018",
     "description": "Developer of video games"
   }]
 };
@@ -92,7 +92,10 @@ if (work.jobs && work.jobs.length > 0) {
   jobs.forEach(function(job){
     var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
     var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
-    var formattedJob = formattedEmployer + formattedTitle
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+    var formattedJob = formattedEmployer + formattedTitle + formattedLocation + formattedDates + formattedDescription;
 
     $(".work-entry:last").append(formattedJob);
   });
