@@ -21,19 +21,6 @@ var bio = {
   ]
 };
 // TODO: url strings for project images
-var projects = {
-  "projects": [{
-    "title": "Portfolio Site",
-    "dates": "January 2018",
-    "description": "Personal Portfolio site",
-    "images": []
-  }, {
-    "title": "Online Resume",
-    "dates": "February 2018",
-    "description": "Online resume site",
-    "images": []
-  }]
-};
 var work = {
   "jobs": [{
     "employer": "Hats inc.",
@@ -47,6 +34,19 @@ var work = {
     "location": "Bellevue",
     "dates": "February 2018",
     "description": "Developer of video games"
+  }]
+};
+var projects = {
+  "projects": [{
+    "title": "Portfolio Site",
+    "dates": "January 2018",
+    "description": "Personal Portfolio site",
+    "images": []
+  }, {
+    "title": "Online Resume",
+    "dates": "February 2018",
+    "description": "Online resume site",
+    "images": []
   }]
 };
 var education = {
