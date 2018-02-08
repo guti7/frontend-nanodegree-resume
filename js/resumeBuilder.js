@@ -20,7 +20,6 @@ var bio = {
     "JavaScript"
   ]
 };
-
 // TODO: url strings for project images
 var projects = {
   "projects": [{
@@ -35,7 +34,6 @@ var projects = {
     "images": []
   }]
 };
-
 var work = {
   "jobs": [{
     "employer": "Hats inc.",
@@ -51,7 +49,6 @@ var work = {
     "description": "Developer of video games"
   }]
 };
-
 var education = {
   "schools": [{
     "name": "BRCC",
@@ -92,9 +89,8 @@ function displayBioRole() {
 }
 
 function displayContacts() {
-  if (bio.contacts && Object.keys(bio.contacts).length > 0) {
+  if (bio.contacts) {
     var contacts = bio.contacts;
-    // TODO: Replace for a different for loop?
     for (key in contacts) {
       var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
       formattedContact = formattedContact.replace("%data%", contacts[key]);
@@ -129,7 +125,7 @@ function displaySkills() {
 }
 
 function displayWork() {
-  if (work.jobs && work.jobs.length > 0) {
+  if (work.jobs) {
     var jobs = work.jobs;
     jobs.forEach(function(job) {
       $("#workExperience").append(HTMLworkStart);
@@ -145,7 +141,7 @@ function displayWork() {
 }
 
 function displayProjects() {
-  if (projects.projects && projects.projects.length > 0) {
+  if (projects.projects) {
     var assignments = projects.projects;
     assignments.forEach(function(assignment) {
       $("#projects").append(HTMLprojectStart);
@@ -160,7 +156,7 @@ function displayProjects() {
 }
 
 function displaySchools() {
-  if (education.schools && education.schools.length > 0) {
+  if (education.schools) {
     var schools = education.schools;
     schools.forEach(function(school) {
       $("#education").append(HTMLschoolStart);
@@ -176,7 +172,7 @@ function displaySchools() {
 }
 
 function displayOnlineCourses() {
-  if (education.onlineCourses && education.onlineCourses.length > 0) {
+  if (education.onlineCourses) {
     $("#education").append(HTMLonlineClasses);
     var courses = education.onlineCourses;
     courses.forEach(function(course) {
