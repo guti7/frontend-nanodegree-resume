@@ -130,9 +130,9 @@ function displaySkills() {
 
 function displayWork() {
   if (work.jobs && work.jobs.length > 0) {
-    $("#workExperience").append(HTMLworkStart);
     var jobs = work.jobs;
     jobs.forEach(function(job) {
+      $("#workExperience").append(HTMLworkStart);
       var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
       var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
       var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
