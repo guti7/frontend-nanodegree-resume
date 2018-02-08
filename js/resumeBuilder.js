@@ -146,15 +146,15 @@ function displayWork() {
 
 function displayProjects() {
   if (projects.projects && projects.projects.length > 0) {
-    $("#projects").append(HTMLprojectStart);
     var assignments = projects.projects;
     assignments.forEach(function(assignment) {
+      $("#projects").append(HTMLprojectStart);
       var formattedTitle = HTMLprojectTitle.replace("%data%", assignment.title);
       var formattedDates = HTMLprojectDates.replace("%data%", assignment.dates);
       var formattedDescription = HTMLprojectDescription.replace("%data%", assignment.description);
       var formattedImages = HTMLprojectImage.replace("%data%", assignment.images);
       var formattedProject = formattedTitle + formattedDates + formattedDescription + formattedImages;
-      $(".project-entry").append(formattedProject);
+      $(".project-entry:last").append(formattedProject);
     });
   }
 }
