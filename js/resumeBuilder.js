@@ -54,14 +54,16 @@ var work = {
 
 var education = {
   "schools": [{
-    "name": "Blue Ridge Community College",
+    "name": "BRCC",
     "location": "Flat Rock",
-    "majors": ["Associate's in Science"],
+    "degree": "A.S.",
+    "majors": ["General Studies"],
     "dates": "2011",
     "url": ""
   }, {
     "name": "NCSU",
     "location": "Raleigh",
+    "degree": "B.S.",
     "majors": ["Computer Science"],
     "dates": "2014",
     "url": ""
@@ -69,8 +71,13 @@ var education = {
   "onlineCourses": [{
     "title": "FEND",
     "school": "Udacity",
-    "dates": "2018",
-    "url": "https://udacity.com"
+    "dates": "January, 2018",
+    "url": "udacity.com"
+  }, {
+    "title": "Become an iOS Developer",
+    "school": "Udacity",
+    "dates": "March 2018",
+    "url": "udacity.com"
   }]
 };
 
@@ -152,6 +159,43 @@ function displayProjects() {
   }
 }
 
+function displaySchools() {
+  if (education.schools && education.schools.length > 0) {
+    var schools = education.schools;
+    schools.forEach(function(school) {
+      $("#education").append(HTMLschoolStart);
+      var formattedName = HTMLschoolName.replace("%data%", school.name);
+      var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
+      var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
+      var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+      var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
+      var formattedSchool = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
+      $(".education-entry:last").append(formattedSchool);
+    });
+  }
+}
+
+function displayOnlineCourses() {
+  if (education.onlineCourses && education.onlineCourses.length > 0) {
+    $("#education").append(HTMLonlineClasses);
+    var courses = education.onlineCourses;
+    courses.forEach(function(course) {
+      $("#education").append(HTMLschoolStart);
+      var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
+      var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
+      var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
+      var formattedURL = HTMLonlineURL.replace("%data%", course.url);
+      var formattedOnlineCourse = formattedTitle + formattedSchool + formattedDates + formattedURL;
+      $(".education-entry:last").append(formattedOnlineCourse);
+    });
+  }
+}
+
+function displayEducation() {
+  displaySchools();
+  displayOnlineCourses();
+}
+
 function displayHeader() {
   displayBioRole();
   displayBioName();
@@ -164,3 +208,4 @@ function displayHeader() {
 displayHeader();
 displayWork();
 displayProjects();
+displayEducation();
