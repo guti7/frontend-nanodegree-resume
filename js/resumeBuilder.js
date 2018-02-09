@@ -78,17 +78,17 @@ var education = {
   }]
 };
 
-function displayBioName() {
+bio.displayName = function () {
   let formattedName = HTMLheaderName.replace("%data%", bio.name);
   $("#header").prepend(formattedName);
 }
 
-function displayBioRole() {
+bio.displayRole = function () {
   let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
   $("#header").prepend(formattedRole);
 }
 
-function displayContacts() {
+bio.displayContacts = function () {
   if (bio.contacts) {
     var contacts = bio.contacts;
     for (key in contacts) {
@@ -99,21 +99,21 @@ function displayContacts() {
   }
 }
 
-function displayBiopic() {
+bio.displayPic = function () {
   if (bio.hasOwnProperty("biopic")) {
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedBioPic);
   }
 }
 
-function displayWelcomeMessage() {
+bio.displayWelcomeMessage = function () {
   if (bio.hasOwnProperty("welcomeMessage")) {
     var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
   }
 }
 
-function displaySkills() {
+bio.displaySkills = function () {
   if (bio.skills && bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
     var skills = bio.skills;
@@ -124,7 +124,7 @@ function displaySkills() {
   }
 }
 
-function displayWork() {
+work.display = function () {
   if (work.jobs) {
     var jobs = work.jobs;
     jobs.forEach(function(job) {
@@ -140,7 +140,7 @@ function displayWork() {
   }
 }
 
-function displayProjects() {
+projects.display = function () {
   if (projects.projects) {
     var assignments = projects.projects;
     assignments.forEach(function(assignment) {
@@ -155,7 +155,7 @@ function displayProjects() {
   }
 }
 
-function displaySchools() {
+education.displaySchools = function () {
   if (education.schools) {
     var schools = education.schools;
     schools.forEach(function(school) {
@@ -171,7 +171,7 @@ function displaySchools() {
   }
 }
 
-function displayOnlineCourses() {
+education.displayOnlineCourses = function () {
   if (education.onlineCourses) {
     $("#education").append(HTMLonlineClasses);
     var courses = education.onlineCourses;
@@ -187,26 +187,26 @@ function displayOnlineCourses() {
   }
 }
 
-function displayEducation() {
-  displaySchools();
-  displayOnlineCourses();
+education.display = function () {
+  education.displaySchools();
+  education.displayOnlineCourses();
 }
 
 function addInternationalizeButton() {
   $("#main").append(internationalizeButton);
 }
 
-function displayHeader() {
-  displayBioRole();
-  displayBioName();
-  displayContacts();
-  displayBiopic();
-  displayWelcomeMessage();
-  displaySkills();
+bio.display = function displayHeader() {
+  bio.displayRole();
+  bio.displayName();
+  bio.displayContacts();
+  bio.displayPic();
+  bio.displayWelcomeMessage();
+  bio.displaySkills();
 }
 
-displayHeader();
-displayWork();
-displayProjects();
-displayEducation();
+bio.display();
+work.display();
+projects.display();
+education.display();
 addInternationalizeButton();
