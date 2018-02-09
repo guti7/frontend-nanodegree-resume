@@ -88,13 +88,13 @@ bio.displayRole = function () {
   $("#header").prepend(formattedRole);
 }
 
-bio.displayContacts = function () {
+bio.displayContacts = function (tagID) {
   if (bio.contacts) {
     var contacts = bio.contacts;
     for (key in contacts) {
       var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
       formattedContact = formattedContact.replace("%data%", contacts[key]);
-      $("#topContacts").append(formattedContact);
+      $(tagID).append(formattedContact);
     }
   }
 }
@@ -207,10 +207,14 @@ function displayGoogleMap() {
   $("#mapDiv").append(googleMap);
 }
 
+function displayFooterContacts() {
+  bio.displayContacts("#footerContacts");
+}
+
 bio.display = function () {
   bio.displayRole();
   bio.displayName();
-  bio.displayContacts();
+  bio.displayContacts("#topContacts");
   bio.displayPic();
   bio.displayWelcomeMessage();
   bio.displaySkills();
@@ -222,3 +226,4 @@ projects.display();
 education.display();
 addInternationalizeButton();
 displayGoogleMap();
+displayFooterContacts();
