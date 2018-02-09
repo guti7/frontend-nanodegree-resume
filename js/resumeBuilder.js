@@ -79,39 +79,41 @@ var education = {
 };
 
 bio.displayName = function () {
-  let formattedName = HTMLheaderName.replace("%data%", bio.name);
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
   $("#header").prepend(formattedName);
-}
+};
 
 bio.displayRole = function () {
-  let formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
   $("#header").prepend(formattedRole);
-}
+};
 
 bio.displayContacts = function (tagID) {
   if (bio.contacts) {
     var contacts = bio.contacts;
-    for (key in contacts) {
-      var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
-      formattedContact = formattedContact.replace("%data%", contacts[key]);
-      $(tagID).append(formattedContact);
+    for (var key in contacts) {
+      if (contacts.hasOwnProperty(key)) {
+        var formattedContact = HTMLcontactGeneric.replace("%contact%", key);
+        formattedContact = formattedContact.replace("%data%", contacts[key]);
+        $(tagID).append(formattedContact);
+    	}
     }
   }
-}
+};
 
 bio.displayPic = function () {
   if (bio.hasOwnProperty("biopic")) {
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedBioPic);
   }
-}
+};
 
 bio.displayWelcomeMessage = function () {
   if (bio.hasOwnProperty("welcomeMessage")) {
     var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
   }
-}
+};
 
 bio.displaySkills = function () {
   if (bio.skills && bio.skills.length > 0) {
@@ -122,7 +124,7 @@ bio.displaySkills = function () {
       $("#skills").append(formattedSkills);
     });
   }
-}
+};
 
 work.display = function () {
   if (work.jobs) {
@@ -138,7 +140,7 @@ work.display = function () {
       $(".work-entry:last").append(formattedJob);
     });
   }
-}
+};
 
 projects.displayImages = function (assignment) {
   var images = assignment.images;
@@ -146,7 +148,7 @@ projects.displayImages = function (assignment) {
     var formattedImage = HTMLprojectImage.replace("%data%", imageSRC);
     $(".project-entry:last").append(formattedImage);
   });
-}
+};
 
 projects.display = function () {
   if (projects.projects) {
@@ -161,7 +163,7 @@ projects.display = function () {
       projects.displayImages(assignment);
     });
   }
-}
+};
 
 education.displaySchools = function () {
   if (education.schools) {
@@ -177,7 +179,7 @@ education.displaySchools = function () {
       $(".education-entry:last").append(formattedSchool);
     });
   }
-}
+};
 
 education.displayOnlineCourses = function () {
   if (education.onlineCourses) {
@@ -193,16 +195,17 @@ education.displayOnlineCourses = function () {
       $(".education-entry:last").append(formattedOnlineCourse);
     });
   }
-}
+};
 
 education.display = function () {
   education.displaySchools();
   education.displayOnlineCourses();
-}
+};
 
 function addInternationalizeButton() {
   $("#main").append(internationalizeButton);
 }
+
 function displayGoogleMap() {
   $("#mapDiv").append(googleMap);
 }
@@ -218,7 +221,7 @@ bio.display = function () {
   bio.displayPic();
   bio.displayWelcomeMessage();
   bio.displaySkills();
-}
+};
 
 bio.display();
 work.display();
