@@ -41,12 +41,12 @@ var projects = {
     "title": "Portfolio Site",
     "dates": "January 2018",
     "description": "Personal Portfolio site",
-    "images": []
+    "images": ["images/197x148.gif", "images/197x148.gif", "images/197x148.gif"]
   }, {
     "title": "Online Resume",
     "dates": "February 2018",
     "description": "Online resume site",
-    "images": []
+    "images": ["images/197x148.gif", "images/197x148.gif", "images/197x148.gif"]
   }]
 };
 var education = {
@@ -140,6 +140,14 @@ work.display = function () {
   }
 }
 
+projects.displayImages = function (assignment) {
+  var images = assignment.images;
+  images.forEach(function(imageSRC) {
+    var formattedImage = HTMLprojectImage.replace("%data%", imageSRC);
+    $(".project-entry:last").append(formattedImage);
+  });
+}
+
 projects.display = function () {
   if (projects.projects) {
     var assignments = projects.projects;
@@ -148,9 +156,9 @@ projects.display = function () {
       var formattedTitle = HTMLprojectTitle.replace("%data%", assignment.title);
       var formattedDates = HTMLprojectDates.replace("%data%", assignment.dates);
       var formattedDescription = HTMLprojectDescription.replace("%data%", assignment.description);
-      var formattedImages = HTMLprojectImage.replace("%data%", assignment.images);
-      var formattedProject = formattedTitle + formattedDates + formattedDescription + formattedImages;
+      var formattedProject = formattedTitle + formattedDates + formattedDescription;
       $(".project-entry:last").append(formattedProject);
+      projects.displayImages(assignment);
     });
   }
 }
