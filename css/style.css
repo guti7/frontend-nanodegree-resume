@@ -14,6 +14,11 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -204,7 +209,7 @@ span {
 #map {
   display: block;
   height: 100%;
-  margin: 0 5%;
+  margin: 0;
 }
 
 #mapDiv {
