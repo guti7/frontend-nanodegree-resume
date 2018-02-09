@@ -192,6 +192,10 @@ function displayEducation() {
   displayOnlineCourses();
 }
 
+function addInternationalizeButton() {
+  $("#main").append(internationalizeButton);
+}
+
 function displayHeader() {
   displayBioRole();
   displayBioName();
@@ -205,3 +209,4 @@ displayHeader();
 displayWork();
 displayProjects();
 displayEducation();
+addInternationalizeButton();
