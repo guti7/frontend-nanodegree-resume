@@ -10,7 +10,7 @@ var bio = {
     "mobile": "###-###-####",
     "email": "email@email.com",
     "github": "guti7",
-    "location": "Emerald City"
+    "location": "Seattle, WA"
   },
   "skills": [
     "Git",
@@ -25,13 +25,13 @@ var work = {
   "jobs": [{
     "employer": "Hats inc.",
     "title": "Owner",
-    "location": "Here",
+    "location": "Bellevue, WA",
     "dates": "February 2018",
     "description": "All kinds of hats."
   }, {
     "employer": "Furious Games",
     "title": "Game Developer",
-    "location": "Bellevue",
+    "location": "San Francisco, CA",
     "dates": "February 2018",
     "description": "Developer of video games"
   }]
@@ -52,14 +52,14 @@ var projects = {
 var education = {
   "schools": [{
     "name": "BRCC",
-    "location": "Flat Rock",
+    "location": "Flat Rock, NC",
     "degree": "A.S.",
     "majors": ["General Studies"],
     "dates": "2011",
     "url": ""
   }, {
     "name": "NCSU",
-    "location": "Raleigh",
+    "location": "Raleigh, NC",
     "degree": "B.S.",
     "majors": ["Computer Science"],
     "dates": "2014",
@@ -195,6 +195,9 @@ education.display = function () {
 function addInternationalizeButton() {
   $("#main").append(internationalizeButton);
 }
+function displayGoogleMap() {
+  $("#mapDiv").append(googleMap);
+}
 
 bio.display = function () {
   bio.displayRole();
@@ -210,3 +213,4 @@ work.display();
 projects.display();
 education.display();
 addInternationalizeButton();
+displayGoogleMap();
