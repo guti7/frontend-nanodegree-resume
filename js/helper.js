@@ -149,7 +149,6 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-    console.log(locations);
     return locations;
   }
 
