@@ -196,7 +196,7 @@ function addInternationalizeButton() {
   $("#main").append(internationalizeButton);
 }
 
-bio.display = function displayHeader() {
+bio.display = function () {
   bio.displayRole();
   bio.displayName();
   bio.displayContacts();
